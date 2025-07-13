@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task_buddy_flutter/view/home/home_screen.dart';
 import 'package:task_buddy_flutter/view/layout/main_layout.dart';
 
 class AddTaskScreen extends StatefulWidget {
