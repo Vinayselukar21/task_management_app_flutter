@@ -40,7 +40,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
       'Performance Review | 11:00 AM | Annual review with manager.',
     ],
     DateTime.utc(2025, 11, 13): ['One event here'],
-    DateTime.utc(2025, 11, 21): ['Doctor Appointment | 4:00 PM | Regular checkup'],
+    DateTime.utc(2025, 11, 21): [
+      'Doctor Appointment | 4:00 PM | Regular checkup',
+    ],
   };
 
   List<String> _getEventsForDay(DateTime day) {
@@ -57,7 +59,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Calendar")),
+      appBar: AppBar(title: const Text("Calendar"), centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -100,47 +102,53 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 const SizedBox(height: 20),
                 Text(
                   'Tasks for ${_selectedDay!.day} ${_selectedDay!.month}, ${_selectedDay!.year}',
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
                 const SizedBox(height: 10),
-                ..._selectedEvents.map(
-                  (event) {
-                    final parts = event.split('|');
-                    final title = parts[0].trim();
-                    final time = parts.length > 1 ? parts[1].trim() : '';
-                    final description = parts.length > 2 ? parts[2].trim() : '';
+                ..._selectedEvents.map((event) {
+                  final parts = event.split('|');
+                  final title = parts[0].trim();
+                  final time = parts.length > 1 ? parts[1].trim() : '';
+                  final description = parts.length > 2 ? parts[2].trim() : '';
 
-                    return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 6),
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-                                const SizedBox(height: 4),
-                                Text(time, style: const TextStyle(color: Colors.grey)),
-                              ],
-                            ),
+                  return Container(
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                title,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                time,
+                                style: const TextStyle(color: Colors.grey),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            flex: 3,
-                            child: Text(description),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(flex: 3, child: Text(description)),
+                      ],
+                    ),
+                  );
+                }),
               ],
             ),
           ),

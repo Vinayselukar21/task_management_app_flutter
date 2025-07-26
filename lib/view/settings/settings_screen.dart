@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_buddy_flutter/providers/auth_provider.dart';
+import 'package:task_buddy_flutter/view/settings/about_screen.dart';
+import 'package:task_buddy_flutter/view/settings/account_settings_screen.dart';
+import 'package:task_buddy_flutter/view/settings/notification_settings_screen.dart';
+import 'package:task_buddy_flutter/view/settings/privacy_policy_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -8,7 +12,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
+      appBar: AppBar(title: Text('Settings'), centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -23,124 +27,165 @@ class SettingsScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 16,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.person,
-                              color: Colors.black,
-                              size: 24,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AccountSettingsScreen(),
                             ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Text(
-                                "Account",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 16,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.person,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Text(
+                                  "Account",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const Icon(
-                              Icons.arrow_right,
-                              color: Colors.black,
-                              size: 24,
-                            ),
-                          ],
+                              const Icon(
+                                Icons.arrow_right,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 16,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.notifications,
-                              color: Colors.black,
-                              size: 24,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  NotificationSettingsScreen(),
                             ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Text(
-                                "Notifications",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 16,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.notifications,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Text(
+                                  "Notifications",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const Icon(
-                              Icons.arrow_right,
-                              color: Colors.black,
-                              size: 24,
-                            ),
-                          ],
+                              const Icon(
+                                Icons.arrow_right,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 16,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.lock,
-                              color: Colors.black,
-                              size: 24,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PrivacyPolicyScreen(),
                             ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Text(
-                                "Privacy Policy",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 16,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.lock,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Text(
+                                  "Privacy Policy",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const Icon(
-                              Icons.arrow_right,
-                              color: Colors.black,
-                              size: 24,
-                            ),
-                          ],
+                              const Icon(
+                                Icons.arrow_right,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 16,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.error,
-                              color: Colors.black,
-                              size: 24,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AboutScreen(),
                             ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Text(
-                                "About",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 16,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.error,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Text(
+                                  "About",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const Icon(
-                              Icons.arrow_right,
-                              color: Colors.black,
-                              size: 24,
-                            ),
-                          ],
+                              const Icon(
+                                Icons.arrow_right,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

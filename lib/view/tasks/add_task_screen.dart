@@ -24,7 +24,12 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   final List<String> _categoryOptions = ['Work', 'Personal', 'Study'];
   final List<String> _priorityOptions = ['Low', 'Medium', 'High'];
-  final List<String> _frequencyOptions = ['Never','One-time', 'Daily', 'Weekly'];
+  final List<String> _frequencyOptions = [
+    'Never',
+    'One-time',
+    'Daily',
+    'Weekly',
+  ];
 
   bool _reminder = false;
 
@@ -41,6 +46,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        centerTitle: true,
         title: Text('Add New Task'),
         actions: [
           TextButton(

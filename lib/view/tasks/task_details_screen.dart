@@ -15,15 +15,19 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Task Details'),actions: [
+      appBar: AppBar(
+        title: Text('Task Details'),
+        centerTitle: true,
+        actions: [
           TextButton(
-            onPressed: (){},
+            onPressed: () {},
             child: Text(
               'Edit',
               style: TextStyle(color: Colors.blue, fontSize: 20),
             ),
           ),
-        ],),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -95,7 +99,10 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                       ),
                     ),
                     onPressed: () {},
-                    child: const Text("Mark as Complete", style: TextStyle(fontSize: 18)),
+                    child: const Text(
+                      "Mark as Complete",
+                      style: TextStyle(fontSize: 18),
+                    ),
                   ),
                 ),
               ],
@@ -117,7 +124,10 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                       ),
                     ),
                     onPressed: () {},
-                    child: const Text("Delete Task", style: TextStyle(fontSize: 18)),
+                    child: const Text(
+                      "Delete Task",
+                      style: TextStyle(fontSize: 18),
+                    ),
                   ),
                 ),
               ],

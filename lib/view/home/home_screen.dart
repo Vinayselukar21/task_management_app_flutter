@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        centerTitle: true,
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
